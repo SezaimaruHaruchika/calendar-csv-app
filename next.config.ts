@@ -4,10 +4,12 @@ const repo = 'calendar-csv-app';
 const assetPrefix = `/${repo}/`;
 const basePath = `/${repo}`;
 
+const isProd = process.env.NODE_ENV === 'production';
+
 const nextConfig: NextConfig = {
   output: 'export',
-  assetPrefix: assetPrefix,
-  basePath: basePath,
+  assetPrefix: isProd ? `/${repo}/` : '',
+  basePath: isProd ? `/${repo}` : '',
 };
 
 export default nextConfig;
