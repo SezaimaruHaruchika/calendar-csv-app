@@ -51,8 +51,8 @@ export default function EventForm({ onSubmit, eventToEdit, onCancel }: EventForm
             <div className="space-y-6">
                 {/* --- ここからが修正箇所 --- */}
                 <div className="flex items-start space-x-4">
-                    <ClockIcon className="text-gray-500 flex-shrink-0 mt-2" />
-                    <div className="flex-grow space-y-2">
+                    <ClockIcon className="text-gray-500 shrink-0 mt-2" />
+                    <div className="grow space-y-2">
                         <div className="flex items-center gap-2">
                             <input type="date" value={formData.startDate} onChange={(e) => setFormData({ ...formData, startDate: e.target.value })} className="p-2 border rounded-md w-full" required />
                             <span className="text-gray-500">-</span>
