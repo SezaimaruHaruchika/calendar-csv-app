@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# カレンダーイベント管理アプリ
 
-## Getting Started
+このアプリケーションは、日々のカレンダーイベントを直感的に管理し、Googleカレンダー形式のCSVファイルとしてエクスポートすることができるWebアプリケーションです。Next.jsとTailwind CSSを使用して構築されています。
 
-First, run the development server:
+## 背景
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+これまでバンタンのスケジュール管理にはスプレッドシートが使われていましたが、以下の課題がありました。
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- 個人のカレンダーアプリと連携できないため、通知が届かない。
+- スマートフォンでの閲覧性が低く、確認しづらい。
+- 特別授業やHRなどの詳細な時間や内容が分かりにくい。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 目的
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+これらの課題を解決するため、バンタン運営スタッフがイベント情報を簡単に入力・管理し、Googleカレンダー等にインポート可能なCSVファイルとして共有できるツールを開発しました。これにより、各メンバーはスケジュールを自身のカレンダーで一元管理できるようになります。
 
-## Learn More
+## ✨ 主な機能
 
-To learn more about Next.js, take a look at the following resources:
+*   **イベントの作成・編集・削除**: タイトル、期間、場所、説明など、詳細なイベント情報を登録・管理できます。
+*   **繰り返しイベント**: イベントを週単位で簡単に複製できます。
+*   **終日イベント**: 終日のイベントも設定可能です。
+*   **複数選択＆一括削除**: 削除モードを有効にすると、複数のイベントを一度に選択して削除できます。
+*   **CSVエクスポート**: 登録したイベントをGoogleカレンダーにインポート可能なCSV形式で出力します。
+*   **データ永続化**: 作成したイベントはブラウザのLocalStorageに保存され、ページをリロードしても消えません。
+*   **レスポンシブデザイン**: PCでもスマートフォンでも快適に操作できます。
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🚀 使い方
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1.  **イベントの作成**:
+    *   画面左上の「作成」ボタンをクリックすると、イベント作成フォームが表示されます。
+    *   タイトル、開始日時、終了日時などの必須項目を入力し、「保存」ボタンをクリックします。
 
-## Deploy on Vercel
+2.  **イベントの編集・削除**:
+    *   各イベントカードの右側にある「編集」または「削除」ボタンをクリックします。
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3.  **複数イベントの一括削除**:
+    *   画面上部の「複数削除」ボタンをクリックして、削除モードに切り替えます。
+    *   削除したいイベントカードをクリックして選択します（選択されたカードは青くハイライトされます）。
+    *   「選択した項目を削除」ボタンをクリックすると、選択したイベントが一括で削除されます。
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+4.  **CSVエクスポート**:
+    *   「CSVエクスポート」ボタンをクリックすると、`events.csv`という名前のファイルがダウンロードされます。
+    *   このファイルはGoogleカレンダーの「設定」→「インポート/エクスポート」からインポートできます。
+
+## 🛠️ セットアップ（開発者向け）
+
+1.  **リポジトリをクローン**:
+    ```bash
+    git clone https://github.com/SezaimaruHaruchika/calendar-csv-app.git
+    ```
+
+2.  **ディレクトリに移動**:
+    ```bash
+    cd calendar-csv-app
+    ```
+
+3.  **依存関係をインストール**:
+    ```bash
+    npm install
+    ```
+
+4.  **開発サーバーを起動**:
+    ```bash
+    npm run dev
+    ```
+    ブラウザで `http://localhost:3000` を開きます。
+
+---
+
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
