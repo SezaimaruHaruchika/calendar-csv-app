@@ -54,13 +54,13 @@ export default function EventList({ events, onDelete, onEdit, isDeleteMode, sele
               <div className="flex items-center shrink-0">
                 <button
                   onClick={(e) => { e.stopPropagation(); onEdit(event); }}
-                  className="px-3 py-1 text-sm font-medium text-blue-600 hover:bg-blue-50 rounded-md"
+                  className="px-3 py-1 text-sm font-medium text-blue-600 hover:bg-blue-50 border rounded-md"
                 >
                   編集
                 </button>
                 <button
                   onClick={(e) => { e.stopPropagation(); onDelete(event.id); }}
-                  className="ml-2 px-3 py-1 text-sm font-medium text-red-600 hover:bg-red-50 rounded-md"
+                  className="ml-2 px-3 py-1 text-sm font-medium text-red-600 hover:bg-red-50 border rounded-md"
                 >
                   削除
                 </button>

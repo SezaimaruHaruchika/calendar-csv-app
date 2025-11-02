@@ -5,9 +5,12 @@ import { CalendarEvent } from '@/types/event';
 import { exportToGoogleCalendarCSV } from '@/utils/csvExport';
 import EventList from '@/components/EventList';
 import EventForm from '@/components/EventForm';
-import { CalendarIcon, DownloadIcon, PlusIcon, TrashIcon } from '@/components/icons';
+import Header from '@/components/Header';
+import { DownloadIcon, PlusIcon, TrashIcon } from '@/components/icons';
+import Button from '@/components/Button'; // Buttonコンポーネントをインポート
 
 export default function Home() {
+  // ...（既存のuseStateやuseEffectなどのロジックは変更なし）...
   const [events, setEvents] = useState<CalendarEvent[]>([]);
   const [editingEvent, setEditingEvent] = useState<CalendarEvent | null>(null);
   const [showForm, setShowForm] = useState(false);
@@ -109,59 +112,57 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-50 text-gray-800">
-      <header className="p-4 border-b bg-white sticky top-0 z-10">
-        <div className="max-w-7xl mx-auto flex items-center">
-          <CalendarIcon className="text-blue-500 w-8 h-8" />
-          <h1 className="text-xl font-semibold ml-3">カレンダーイベント管理</h1>
-        </div>
-      </header>
+      <Header />
 
       <main className="grow">
         <div className="max-w-7xl mx-auto p-4 md:p-8">
           <div className="mb-6 flex flex-wrap items-center gap-3">
             {!isDeleteMode ? (
               <>
-                <button 
+                <Button 
                   onClick={() => handleOpenForm(null)} 
-                  className="flex items-center gap-2 px-4 py-2 bg-white text-gray-700 rounded-full border shadow-sm hover:bg-gray-100 transition"
+                  variant="secondary"
+                  className="!rounded-full" // 丸い形にするためクラスを上書き
                 >
                   <PlusIcon className="w-5 h-5 text-blue-500" />
                   <span>作成</span>
-                </button>
+                </Button>
                 {events.length > 0 && (
                   <>
-                    <button 
+                    <Button 
                       onClick={handleExport} 
-                      className="flex items-center gap-2 px-4 py-2 bg-white text-gray-700 rounded-full border shadow-sm hover:bg-gray-100 transition"
+                      variant="secondary"
+                      className="!rounded-full"
                     >
                       <DownloadIcon className="w-5 h-5" />
                       <span>CSVエクスポート ({events.length})</span>
-                    </button>
-                    <button 
+                    </Button>
+                    <Button 
                       onClick={toggleDeleteMode} 
-                      className="flex items-center gap-2 px-4 py-2 bg-white text-gray-600 rounded-full border shadow-sm hover:bg-gray-100 transition"
+                      variant="secondary"
+                      className="!rounded-full"
                     >
                       <TrashIcon className="w-5 h-5 text-red-500" />
                       <span>複数削除</span>
-                    </button>
+                    </Button>
                   </>
                 )}
               </>
             ) : (
               <>
-                <button 
+                <Button 
                   onClick={handleDeleteSelected} 
                   disabled={selectedEventIds.length === 0} 
-                  className="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 disabled:bg-gray-400 transition"
+                  variant="danger"
                 >
                   選択した項目を削除 ({selectedEventIds.length})
-                </button>
-                <button 
+                </Button>
+                <Button 
                   onClick={toggleDeleteMode} 
-                  className="px-4 py-2 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300 transition"
+                  variant="secondary"
                 >
                   キャンセル
-                </button>
+                </Button>
               </>
             )}
           </div>
