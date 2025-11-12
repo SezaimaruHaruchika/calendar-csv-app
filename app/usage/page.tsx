@@ -8,19 +8,6 @@ export default function UsagePage() {
       <main className="grow">
         <div className="max-w-4xl mx-auto p-4 md:p-8">
           <div className="bg-white p-8 rounded-lg shadow-sm space-y-8">
-            
-            <section>
-              <h2 className="text-2xl font-bold border-b pb-2 mb-4">主な機能</h2>
-              <ul className="list-disc list-inside space-y-2 text-gray-700">
-                <li><span className="font-bold">イベントの作成・編集・削除</span>: タイトル、期間、場所、説明など、詳細なイベント情報を<br />登録・管理できます。</li>
-                <li><span className="font-bold">繰り返しイベント</span>: イベントを週単位で簡単に複製できます。</li>
-                <li><span className="font-bold">終日イベント</span>: 終日のイベントも設定可能です。</li>
-                <li><span className="font-bold">複数選択＆一括削除</span>: 削除モードを有効にすると、複数のイベントを一度に選択して削除できます。</li>
-                <li><span className="font-bold">CSVエクスポート</span>: 登録したイベントをGoogleカレンダーにインポート可能なCSV形式で出力します。</li>
-                <li><span className="font-bold">データ永続化</span>: 作成したイベントはブラウザに保存され、ページをリロードしても消えません。</li>
-              </ul>
-            </section>
-
             <section>
               <h2 className="text-2xl font-bold border-b pb-2 mb-4">基本的な使い方</h2>
               <div className="space-y-6">
